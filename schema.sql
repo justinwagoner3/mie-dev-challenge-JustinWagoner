@@ -2,7 +2,7 @@
 CREATE TABLE Games (
     game_id INT NOT NULL AUTO_INCREMENT,
     game_name VARCHAR(255) NOT NULL,
-    #game_image LONGBLOB,
+    game_image LONGBLOB,
     PRIMARY KEY (game_id)
 );
 
