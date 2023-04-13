@@ -1,7 +1,7 @@
 module.exports = {
 	getAdd: (req, res) => {
-		res.render('add-game.ejs', {
-			title: 'Board Games | Add game'
+		res.render('add-game-session.ejs', {
+			title: 'Board Games | Add game session'
 		});
 	},
 	postAdd: (req, res) => {
