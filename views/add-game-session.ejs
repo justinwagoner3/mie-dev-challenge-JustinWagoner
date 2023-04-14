@@ -1,5 +1,18 @@
 <%- include ('partials/header.ejs') %>
 
-TODO: Make a form for adding a game-playing session
+<h1>Add game session</h1>
+
+<form method="POST" action="/add-game-session">
+    <label for="game">Game:</label>
+    <select name="game" id="game">
+        <% for (var i = 0; i < games.length; i++) { %>
+            <option value="<%= games[i].game_id %>"><%= games[i].game_name %></option>
+        <% } %>
+    </select><br><br>
+    
+    <label for="startDate">Start date:</label>
+    <input type="datetime-local" name="startDate" id="startDate"><br><br>
+    <input type="submit" value="Add Game Session">
+</form>
 
 <%- include ('partials/footer.ejs') %>
