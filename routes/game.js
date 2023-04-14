@@ -49,8 +49,6 @@ module.exports = {
 			// If all went well, go back to main screen
 			res.redirect('/');
 		});
-
-
 	},
 	postEdit: (req, res) => {
 		let id = req.params.id;
