@@ -54,7 +54,7 @@ module.exports = {
 		let id = req.params.id;
 
 		// db.query to update game
-		let { game_id, startDate } = req.body;
+		let { startDate } = req.body;
 		let query = `UPDATE GameSessions SET game_session_start_date = '${startDate}' WHERE game_session_id = ${id}`;
 		db.query(query, (err, result) => {
 			if (err) {
