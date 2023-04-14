@@ -1,12 +1,12 @@
 # Table Creation
-CREATE TABLE games (
+CREATE TABLE Games (
     game_id INT NOT NULL AUTO_INCREMENT,
     game_name VARCHAR(255) NOT NULL,
     game_image LONGBLOB,
     PRIMARY KEY (game_id)
 );
 
-CREATE TABLE gamesessions (
+CREATE TABLE GameSessions (
     game_session_id INT NOT NULL AUTO_INCREMENT,
     game_id INT NOT NULL,
     game_session_start_date DATETIME NOT NULL,
