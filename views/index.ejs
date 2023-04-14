@@ -18,6 +18,7 @@ body {
 	            <tr>
 	                <th>Name</th>
 	                <th>Last Played</th>
+	                <th>Edit</th>
 	            </tr>
 	        </thead>
 	        <tbody>
@@ -25,6 +26,7 @@ body {
 	                <tr>
 	                    <td><%= games[i].game_name %></td>
 	                    <td><%= games[i].last_played ? games[i].last_played.toLocaleString('en-US', { timeZone: 'UTC', hourCycle: 'h12', hour12: true }) : '' %></td>
+	                	<td><button onclick="location.href='/edit-game/<%= games[i].game_id %>'">Edit</button></td>
 	                </tr>
 	            <% } %>
 	        </tbody>
