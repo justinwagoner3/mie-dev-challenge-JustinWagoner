@@ -39,8 +39,8 @@ module.exports = {
 	},
 	postAdd: (req, res) => {
 		// db.query to insert game
-		let { name } = req.body;
-		let query = `INSERT INTO Games (game_name) VALUES ('${name}')`;
+		let { name, image_url } = req.body;
+		let query = `INSERT INTO Games (game_name, game_image) VALUES ('${name}','${image_url}')`;
 		db.query(query, (err, result) => {
 			if (err) {
 				throw err;

@@ -5,9 +5,18 @@
 <form method="post" action="/add-game">
 	<label for="name">Name:</label>
 	<input type="text" name="name" id="name" required>
-	<label for="image_url">Image URL:</label>
+	<label for="image_url">Image URL (can be blank):</label>
 	<input type="url" name="image_url" id="image_url">
 	<button type="submit">Add Game</button>
 </form>
+
+<h3>How To Upload Image:</h3>
+<ol>
+  <li>Search for image on Google</li>
+  <li>Right click on image</li>
+  <li>Select "Copy Image Address"</li>
+  <li>Paste into URL textbox</li>
+</ol>
+
 
 <%- include ('partials/footer.ejs') %>
