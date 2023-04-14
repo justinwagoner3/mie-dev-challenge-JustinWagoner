@@ -50,7 +50,7 @@ body {
 	            <% for (var i = 0; i < gameSessions.length; i++) { %>
 	                <tr>
 						<td><%= gameSessions[i].game_name %></td>
-						<td><%= gameSessions[i].game_session_start_date.toLocaleString('en-US', { timeZone: 'UTC', hourCycle: 'h12', hour12: true }).slice(0, -6) %> <%= gameSessions[i].game_session_start_date.toLocaleString('en-US', { timeZone: 'UTC', hourCycle: 'h12', hour12: true }).slice(-2) %></td>
+						<td><%= gameSessions[i].game_session_start_date.toLocaleString('en-US', { timeZone: 'UTC', hourCycle: 'h12', hour12: true }) %></td>
 	                	<td><button onclick="location.href='/edit-game-session/<%= gameSessions[i].game_session_id %>'">Edit</button></td>
 	                	<td><button onclick="location.href='/delete-game-session/<%= gameSessions[i].game_session_id %>'">Delete</button></td>
 	                </tr>
