@@ -2,13 +2,24 @@
 
 <div style="display: flex; justify-content: space-between;">
 	<div style="width: 45%; border: 2px solid #ddd; border-radius: 10px; padding: 10px;">
-		<h1>Games</h1>
-		<button onclick="location.href='/add-game'">Add Game</button>
-		<ul>
-			<% for (var i = 0; i < games.length; i++) { %>
-				<li><%= games[i].game_name %></li>
-			<% } %>
-		</ul>
+    <h1>Games</h1>
+    <button onclick="location.href='/add-game'">Add Game</button>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Last Played</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (var i = 0; i < games.length; i++) { %>
+                <tr>
+                    <td><%= games[i].game_name %></td>
+					<td><%= games[i].last_played.toLocaleString('en-US', { timeZone: 'UTC', hourCycle: 'h12', hour12: true }).slice(0, -6) %> <%= games[i].last_played.toLocaleString('en-US', { timeZone: 'UTC', hourCycle: 'h12', hour12: true }).slice(-2) %></td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
 	</div>
 	<div style="width: 45%; border: 2px solid #ddd; border-radius: 10px; padding: 10px;">
 		<h1>Game Sessions</h1>
