@@ -32,7 +32,11 @@ module.exports = {
 		let id = req.params.id;
 
 		// db.query to get game_session by id
-		let query = `SELECT * FROM GameSessions WHERE game_session_id = ${id}`;
+		let query = `
+			SELECT Games.game_name,GameSessions.game_session_id,GameSessions.game_session_start_date
+			FROM GameSessions 
+			JOIN Games ON GameSessions.game_id = Games.game_id
+			WHERE game_session_id = ${id}`;
 		db.query(query, (err, result) => {
 			if (err) {
 				throw err;

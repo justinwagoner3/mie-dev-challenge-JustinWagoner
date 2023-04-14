@@ -3,7 +3,7 @@
 
 <h1>Delete Game Session</h1>
 
-	<p>Are you sure you want to delete game session <%= gameSession.game_session_id %>?</p>
+	<p>Are you sure you want to delete game session id: <%= gameSession.game_session_id %>, name: <%= gameSession.game_name %>, start time: <%= gameSession.game_session_start_date %> ?</p>
 	<form method="POST" action="/delete-game-session/<%= gameSession.game_session_id %>">
 		<button type="submit" name="delete" value="Yes">Yes</button>
 		<button type="submit" name="delete" value="No">No</button>
