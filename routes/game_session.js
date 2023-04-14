@@ -52,12 +52,12 @@ module.exports = {
 		});
 	},
 	postAdd: (req, res) => {
-		let { game, startDate } = req.body;
-		let query = `INSERT INTO GameSessions (game_id, game_session_start_date) VALUES ('${game}', '${startDate}')`;
+		let { game_id, startDate } = req.body;
+		let query = `INSERT INTO GameSessions (game_id, game_session_start_date) VALUES ('${game_id}', '${startDate}')`;
 
 		db.query(query, (err, result) => {
 			if (err) throw err;
-			console.log(`Game session added for ${game}`);
+			console.log(`Game session added for game id ${game_id}`);
 			res.redirect('/');
 		});
 	},
