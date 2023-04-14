@@ -11,9 +11,18 @@ module.exports = {
 	},
 	postAdd: (req, res) => {
 		// TODO db.query to insert game
+		let { name } = req.body;
+		let query = `INSERT INTO Games (game_name) VALUES ('${name}')`;
+		db.query(query, (err, result) => {
+			if (err) {
+				throw err;
+			}
+			console.log(`${name} added to database`);
+			// If all went well, go back to main screen
+			res.redirect('/');
+		});
 
-		// If all went well, go back to main screen
-		res.redirect('/');
+
 	},
 	postEdit: (req, res) => {
 		let id = req.params.id;
