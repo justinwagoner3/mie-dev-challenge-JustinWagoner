@@ -18,7 +18,7 @@ module.exports = {
 				}
 
 				res.render('index.ejs', {
-					title: 'Board Games | View Games',
+					//title: 'Board Games | View Games',
 					games: gamesResult,
 					gameSessions: gameSessionsResult
 				});
