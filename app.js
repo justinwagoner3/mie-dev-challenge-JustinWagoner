@@ -9,16 +9,16 @@ const app = express();
 const { getHomePage} = require('./routes/index');
 const game = require('./routes/game');
 const game_session = require('./routes/game_session');
+const config = require('./config');
 
-// TODO: application port should come from config file
-const port = 3000;
 
-// TODO: database connection parameters should come from config file
-const db = mysql.createConnection({
-	host: 'localhost',
-	user: 'app',
-	password: 'wonderful',
-	database: 'miechallenge'})
+// application port should come from config file
+const port = config.port;
+
+
+// database connection parameters should come from config file
+const db = mysql.createConnection(config.db);
+
 
 db.connect((err) => {
 	if (err) {
