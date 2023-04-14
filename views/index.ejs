@@ -24,7 +24,7 @@ body {
 	            <% for (var i = 0; i < games.length; i++) { %>
 	                <tr>
 	                    <td><%= games[i].game_name %></td>
-						<td><%= games[i].last_played.toLocaleString('en-US', { timeZone: 'UTC', hourCycle: 'h12', hour12: true }).slice(0, -6) %> <%= games[i].last_played.toLocaleString('en-US', { timeZone: 'UTC', hourCycle: 'h12', hour12: true }).slice(-2) %></td>
+	                    <td><%= games[i].last_played ? games[i].last_played.toLocaleString('en-US', { timeZone: 'UTC', hourCycle: 'h12', hour12: true }) : '' %></td>
 	                </tr>
 	            <% } %>
 	        </tbody>
