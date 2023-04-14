@@ -1,20 +1,24 @@
 <%- include('partials/header.ejs') %>
 
-<button onclick="location.href='/add-game'">Add Game</button>
-<button onclick="location.href='/add-game-session'">Add Game Session</button>
-
-<div>
-	<ul>
-		<% for (var i = 0; i < games.length; i++) { %>
-			<li><%= games[i].game_name %></li>
-		<% } %>
-	</ul>
-	<ul>
-		<% for (var i = 0; i < gameSessions.length; i++) { %>
-			<li><%= gameSessions[i].game_session_start_date %></li>
-		<% } %>
-	</ul>
+<div style="display: flex; justify-content: space-between;">
+	<div style="width: 45%;">
+		<h1>Games</h1>
+		<button onclick="location.href='/add-game'">Add Game</button>
+		<ul>
+			<% for (var i = 0; i < games.length; i++) { %>
+				<li><%= games[i].game_name %></li>
+			<% } %>
+		</ul>
+	</div>
+	<div style="width: 45%;">
+		<h1>Game Sessions</h1>
+		<button onclick="location.href='/add-game-session'">Add Game Session</button>
+		<ul>
+			<% for (var i = 0; i < gameSessions.length; i++) { %>
+				<li><%= gameSessions[i].game_session_start_date %></li>
+			<% } %>
+		</ul>
+	</div>
 </div>
-
 
 <%- include ('partials/footer.ejs') %>
