@@ -32,6 +32,7 @@ td {
 	    <table>
 	        <thead>
 	            <tr>
+	            	<th>Image</th>
 	                <th>Name</th>
 	                <th>Last Played</th>
 	                <th>Edit</th>
@@ -41,6 +42,7 @@ td {
 	        <tbody style="text-align: center;">
 	            <% for (var i = 0; i < games.length; i++) { %>
 	                <tr>
+						<td><img src="<%= games[i].game_image %>" style="max-height: 100px; max-width: 100px;"></td>
 	                    <td><%= games[i].game_name %></td>
 	                    <td><%= games[i].last_played ? games[i].last_played.toLocaleString('en-US', { timeZone: 'UTC', hourCycle: 'h12', hour12: true }) : '' %></td>
 	                	<td><button onclick="location.href='/edit-game/<%= games[i].game_id %>'">Edit</button></td>

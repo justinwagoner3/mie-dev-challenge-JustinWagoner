@@ -16,16 +16,16 @@ CREATE TABLE GameSessions (
 
 
 # Insert sample games
-INSERT INTO Games (game_name, game_image) VALUES ('Monopoly', '<IMAGE>');
-INSERT INTO Games (game_name, game_image) VALUES ('Othello', '<IMAGE>');
-INSERT INTO Games (game_name, game_image) VALUES ('Catan', '<IMAGE>');
-INSERT INTO Games (game_name, game_image) VALUES ('Cards Against Humanity', '<IMAGE>');
-INSERT INTO Games (game_name, game_image) VALUES ('Ticket to Ride', '<IMAGE>');
-INSERT INTO Games (game_name, game_image) VALUES ('Pandemic', '<IMAGE>');
-INSERT INTO Games (game_name, game_image) VALUES ('Game of Life', '<IMAGE>');
-INSERT INTO Games (game_name, game_image) VALUES ('UNO', '<IMAGE>');
-INSERT INTO Games (game_name, game_image) VALUES ('Codenames', '<IMAGE>');
-INSERT INTO Games (game_name, game_image) VALUES ('Sorry', '<IMAGE>');
+INSERT INTO Games (game_name, game_image) VALUES ('Monopoly', 'https://toppng.com/uploads/preview/monopoly-collect-win-transparent-background-monopoly-guy-11563049600zctdjngr0t.png');
+INSERT INTO Games (game_name, game_image) VALUES ('Othello', 'https://png.pngtree.com/png-vector/20210912/ourlarge/pngtree-go-othello-gomoku-png-image_3913163.jpg');
+INSERT INTO Games (game_name, game_image) VALUES ('Catan', 'https://p7.hiclipart.com/preview/692/115/598/catan-boardgamegeek-dice-board-game-dice-thumbnail.jpg');
+INSERT INTO Games (game_name, game_image) VALUES ('Cards Against Humanity', 'https://www.vhv.rs/dpng/d/465-4655968_cards-against-humanity-png-cards-against-humanity-packaging.png');
+INSERT INTO Games (game_name, game_image) VALUES ('Ticket to Ride', 'https://banner2.cleanpng.com/20180629/hsk/kisspng-days-of-wonder-ticket-to-ride-series-board-game-pa-product-box-5b36f24fd48354.8126638415303276318705.jpg');
+INSERT INTO Games (game_name, game_image) VALUES ('Pandemic', 'https://www.pngfind.com/pngs/m/72-720246_z-man-games-pandemic-board-game-png-z.png');
+INSERT INTO Games (game_name, game_image) VALUES ('Game of Life', 'https://icon2.cleanpng.com/20180407/qhq/kisspng-the-game-of-life-board-game-snakes-and-ladders-spinner-5ac8475b6701f5.8941043215230749074219.jpg');
+INSERT INTO Games (game_name, game_image) VALUES ('UNO', 'https://p7.hiclipart.com/preview/306/920/871/uno-one-card-phase-10-playing-card-card-game-card-game.jpg');
+INSERT INTO Games (game_name, game_image) VALUES ('Codenames', 'https://w7.pngwing.com/pngs/682/233/png-transparent-czech-games-edition-codenames-duet-czech-games-edition-codenames-duet-board-game-code-name-duet-game-board-game-calculator.png');
+INSERT INTO Games (game_name, game_image) VALUES ('Sorry', 'https://cdn0.iconfinder.com/data/icons/board-games-colored-1/48/Games_BoardGames_Artboard_1-512.png');
 
 # Insert same game sessions
 INSERT INTO GameSessions (game_id, game_session_start_date) VALUES (1, '2023-04-01 08:00:00');

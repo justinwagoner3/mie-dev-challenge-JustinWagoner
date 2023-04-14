@@ -4,6 +4,7 @@ module.exports = {
 			SELECT 
 				Games.game_id, 
 				Games.game_name, 
+				Games.game_image,
 				MAX(GameSessions.game_session_start_date) AS last_played 
 			FROM Games 
 			LEFT JOIN 
