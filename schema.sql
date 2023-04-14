@@ -11,7 +11,7 @@ CREATE TABLE GameSessions (
     game_id INT NOT NULL,
     game_session_start_date DATETIME NOT NULL,
     PRIMARY KEY (game_session_id),
-    FOREIGN KEY (game_id) REFERENCES Games(game_id)
+    FOREIGN KEY (game_id) REFERENCES Games(game_id) ON DELETE CASCADE
 );
 
 
