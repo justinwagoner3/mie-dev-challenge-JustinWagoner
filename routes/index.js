@@ -9,8 +9,9 @@ module.exports = {
 		JOIN 
 			GameSessions ON Games.game_id = GameSessions.game_id 
 		GROUP BY 
-			Games.game_id, 
-			Games.game_name`;
+			Games.game_id
+		ORDER BY
+			Games.game_name ASC`;
 
 		db.query(gamesQuery, (err, gamesResult) => {
 			if (err) {
@@ -18,7 +19,15 @@ module.exports = {
 				res.redirect('/');
 			}
 
-		let gameSessionsQuery = "SELECT * FROM GameSessions";
+		let gameSessionsQuery = `
+			SELECT 
+				GameSessions.game_session_start_date,
+				Games.game_name 
+			FROM GameSessions
+			JOIN
+				Games ON GameSessions.game_id = Games.game_id
+			ORDER BY 
+				GameSessions.game_session_start_date DESC`;
 
 		db.query(gameSessionsQuery, (err, gameSessionsResult) => {
 			if (err) {

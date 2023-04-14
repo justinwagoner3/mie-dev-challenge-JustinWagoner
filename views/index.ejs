@@ -2,33 +2,44 @@
 
 <div style="display: flex; justify-content: space-between;">
 	<div style="width: 45%; border: 2px solid #ddd; border-radius: 10px; padding: 10px;">
-    <h1>Games</h1>
-    <button onclick="location.href='/add-game'">Add Game</button>
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Last Played</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% for (var i = 0; i < games.length; i++) { %>
-                <tr>
-                    <td><%= games[i].game_name %></td>
-					<td><%= games[i].last_played.toLocaleString('en-US', { timeZone: 'UTC', hourCycle: 'h12', hour12: true }).slice(0, -6) %> <%= games[i].last_played.toLocaleString('en-US', { timeZone: 'UTC', hourCycle: 'h12', hour12: true }).slice(-2) %></td>
-                </tr>
-            <% } %>
-        </tbody>
-    </table>
+	    <h1>Games</h1>
+	    <button onclick="location.href='/add-game'">Add Game</button>
+	    <table>
+	        <thead>
+	            <tr>
+	                <th>Name</th>
+	                <th>Last Played</th>
+	            </tr>
+	        </thead>
+	        <tbody>
+	            <% for (var i = 0; i < games.length; i++) { %>
+	                <tr>
+	                    <td><%= games[i].game_name %></td>
+						<td><%= games[i].last_played.toLocaleString('en-US', { timeZone: 'UTC', hourCycle: 'h12', hour12: true }).slice(0, -6) %> <%= games[i].last_played.toLocaleString('en-US', { timeZone: 'UTC', hourCycle: 'h12', hour12: true }).slice(-2) %></td>
+	                </tr>
+	            <% } %>
+	        </tbody>
+	    </table>
 	</div>
 	<div style="width: 45%; border: 2px solid #ddd; border-radius: 10px; padding: 10px;">
 		<h1>Game Sessions</h1>
 		<button onclick="location.href='/add-game-session'">Add Game Session</button>
-		<ul>
-			<% for (var i = 0; i < gameSessions.length; i++) { %>
-				<li><%= gameSessions[i].game_session_start_date.toLocaleString('en-US', { timeZone: 'UTC', hourCycle: 'h12', hour12: true }).slice(0, -6) %> <%= gameSessions[i].game_session_start_date.toLocaleString('en-US', { timeZone: 'UTC', hourCycle: 'h12', hour12: true }).slice(-2) %></li>
-			<% } %>
-		</ul>
+    	<table>
+        <thead>
+            <tr>
+                <th>Game</th>
+                <th>Time Started</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (var i = 0; i < gameSessions.length; i++) { %>
+                <tr>
+					<td><%= gameSessions[i].game_name %></td>
+					<td><%= gameSessions[i].game_session_start_date.toLocaleString('en-US', { timeZone: 'UTC', hourCycle: 'h12', hour12: true }).slice(0, -6) %> <%= gameSessions[i].game_session_start_date.toLocaleString('en-US', { timeZone: 'UTC', hourCycle: 'h12', hour12: true }).slice(-2) %></td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
 	</div>
 </div>
 
