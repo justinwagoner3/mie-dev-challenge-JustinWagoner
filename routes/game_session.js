@@ -34,9 +34,9 @@ module.exports = {
 				throw err;
 			}
 
-			res.render('delete-game.ejs', {
+			res.render('delete-game-session.ejs', {
 				title: 'Board Games | Delete game session',
-				game: result[0]
+				gameSession: result[0]
 			});
 		});
 	},
