@@ -3,7 +3,7 @@
 <h1>You are about to change <%= game.game_name %></h1>
 	<form method="post" action="/edit-game/<%= game.game_id %>">
 		<label for="name">New Name:</label>
-		<input type="text" name="name" id="name">
+		<input type="text" name="name" id="name" required>
 		<button type="submit">Edit Game</button>
 	</form>
 
