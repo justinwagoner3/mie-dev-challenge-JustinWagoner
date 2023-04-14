@@ -68,7 +68,7 @@ module.exports = {
 		let id = req.params.id;
 
 		// db.query to delete game
-		let query = `DELETE FROM GameSessions WHERE game_id = ${id}`;
+		let query = `DELETE FROM GameSessions WHERE game_session_id = ${id}`;
 		db.query(query, (err, result) => {
 			if (err) {
 				throw err;
