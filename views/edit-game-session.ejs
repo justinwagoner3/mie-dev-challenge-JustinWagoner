@@ -1,6 +1,6 @@
 <%- include ('partials/header.ejs') %>
 
-<h1>You are about to change <%= gameSession.game_session_id %> with start time <%= gameSession.game_session_start_date %> </h1>
+<h1>You are about to change id: <%= gameSession.game_session_id %>, name: <%= gameSession.game_name %>, start time: <%= gameSession.game_session_start_date %> </h1>
 	<form method="post" action="/edit-game-session/<%= gameSession.game_session_id %>">
 	    <label for="startDate">Start date:</label>
 	    <input type="datetime-local" name="startDate" id="startDate"><br><br>
