@@ -22,6 +22,7 @@ module.exports = {
 		let gameSessionsQuery = `
 			SELECT 
 				GameSessions.game_session_start_date,
+				GameSessions.game_session_id,
 				Games.game_name 
 			FROM GameSessions
 			JOIN

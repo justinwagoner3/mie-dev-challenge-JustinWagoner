@@ -74,6 +74,10 @@ app.get('/delete-game/:id', game.getDelete);
 app.post('/delete-game/:id', game.postDelete);
 app.get('/add-game-session', game_session.getAdd);
 app.post('/add-game-session', game_session.postAdd);
+app.get('/edit-game-session/:id', game_session.getEdit);
+app.post('/edit-game-session/:id', game_session.postEdit);
+app.get('/delete-game-session/:id', game_session.getDelete);
+app.post('/delete-game-session/:id', game_session.postDelete);
 
 app.listen(port, () => {
 	console.log(`Server running on port: ${port}`);
