@@ -2,6 +2,7 @@ module.exports = {
 	getAdd: (req, res) => {
 		db.query('SELECT * FROM Games ORDER BY game_name ASC', (err, results) => {
 			if (err) throw err;
+			console.log(`Attemping to add a game session`);
 			res.render('add-game-session.ejs', {
 				title: 'Board Games | Add game session',
 				games: results
@@ -22,6 +23,7 @@ module.exports = {
 				throw err;
 			}
 
+			console.log(`Attemping to edit game session ${id}`)
 			res.render('edit-game-session.ejs', {
 				title: 'Board Games | Edit game session',
 				gameSession: result[0]
@@ -42,6 +44,7 @@ module.exports = {
 				throw err;
 			}
 
+			console.log(`Attempting to delete game session ${id}`)
 			res.render('delete-game-session.ejs', {
 				title: 'Board Games | Delete game session',
 				gameSession: result[0]

@@ -1,5 +1,6 @@
 module.exports = {
 	getAdd: (req, res) => {
+		console.log(`Attempting to add a game`);
 		res.render('add-game.ejs', {
 			title: 'Board Games | Add game'
 		});
@@ -13,7 +14,7 @@ module.exports = {
 			if (err) {
 				throw err;
 			}
-
+			console.log(`Attemping to edit game "${result[0].game_name}" with id ${id}`)
 			res.render('edit-game.ejs', {
 				title: 'Board Games | Edit game',
 				game: result[0]
@@ -29,7 +30,7 @@ module.exports = {
 			if (err) {
 				throw err;
 			}
-
+			console.log(`Attemping to delete game "${result[0].game_name}" with id ${id}`)
 			res.render('delete-game.ejs', {
 				title: 'Board Games | Edit game',
 				game: result[0]
@@ -44,7 +45,7 @@ module.exports = {
 			if (err) {
 				throw err;
 			}
-			console.log(`${name} added to database`);
+			console.log(`"${name}" added to Games table`);
 			// If all went well, go back to main screen
 			res.redirect('/');
 		});
@@ -61,7 +62,7 @@ module.exports = {
 			if (err) {
 				throw err;
 			}
-			console.log(`Game ${id} updated to ${name}`);
+			console.log(`Game ${id} updated to "${name}"`);
 			res.redirect('/');
 		});
 	},
@@ -80,6 +81,7 @@ module.exports = {
 			});
 		}
 		else{
+			console.log(`Game ${id} not deleted`);
 			res.redirect('/');
 		}	
 	}
