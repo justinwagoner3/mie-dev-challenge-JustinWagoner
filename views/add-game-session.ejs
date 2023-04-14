@@ -4,7 +4,7 @@
 
 <form method="POST" action="/add-game-session">
     <label for="game_id">Game:</label>
-    <select name="game_id" id="game_id">
+    <select name="game_id" id="game_id" required>
         <% for (var i = 0; i < games.length; i++) { %>
             <option value="<%= games[i].game_id %>"><%= games[i].game_name %></option>
         <% } %>
