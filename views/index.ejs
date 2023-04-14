@@ -2,15 +2,31 @@
 
 <style>
 body {
-  background-image: url('https://cdn.dribbble.com/users/5946079/screenshots/15259180/playing-background-design-1600-x-1200_4x.jpg');
-  background-size: cover;
-  color: white;
+	background-image: url('https://cdn.dribbble.com/users/5946079/screenshots/15259180/playing-background-design-1600-x-1200_4x.jpg');
+	background-size: cover;
+	color: white;
+}
+table {
+	border-collapse: collapse;
+	width: 100%;
+	max-width: 600px;
+}
+
+th, td {
+	text-align: center;
+	padding: 10px;
+}
+
+td {
+	border-bottom: 1px solid #ddd;
+	border-top: 1px solid #ddd;
+	border-radius: 5px;
 }
 </style>
 
 
 <div style="display: flex; justify-content: space-between;">
-	<div style="width: 45%; border: 2px solid #ddd; border-radius: 10px; padding: 10px; background-color: rgba(0, 0, 0, 0.5);">
+	<div style="width: 45%; border: 2px solid #ddd; border-radius: 10px; padding: 10px; background-color: rgba(0, 0, 0, 0.8);">
 	    <h1>Games</h1>
 	    <button onclick="location.href='/add-game'">Add Game</button>
 	    <table>
@@ -22,7 +38,7 @@ body {
 	                <th>Delete</th>
 	            </tr>
 	        </thead>
-	        <tbody>
+	        <tbody style="text-align: center;">
 	            <% for (var i = 0; i < games.length; i++) { %>
 	                <tr>
 	                    <td><%= games[i].game_name %></td>
@@ -34,7 +50,7 @@ body {
 	        </tbody>
 	    </table>
 	</div>
-	<div style="width: 45%; border: 2px solid #ddd; border-radius: 10px; padding: 10px; background-color: rgba(0, 0, 0, 0.5);">
+	<div style="width: 45%; border: 2px solid #ddd; border-radius: 10px; padding: 10px; background-color: rgba(0, 0, 0, 0.8);">
 		<h1>Game Sessions</h1>
 		<button onclick="location.href='/add-game-session'">Add Game Session</button>
     	<table>
@@ -46,7 +62,7 @@ body {
 	                <th>Delete</th>
 	            </tr>
 	        </thead>
-	        <tbody>
+	        <tbody style="text-align: center;">
 	            <% for (var i = 0; i < gameSessions.length; i++) { %>
 	                <tr>
 						<td><%= gameSessions[i].game_name %></td>
