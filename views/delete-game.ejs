@@ -1,0 +1,8 @@
+<%- include ('partials/header.ejs') %>
+
+<h1>You are about to delete <%= game.game_name %></h1>
+	<form method="post" action="/delete-game/<%= game.game_id %>">
+		<button type="submit">Delete Game</button>
+	</form>
+
+<%- include ('partials/footer.ejs') %>

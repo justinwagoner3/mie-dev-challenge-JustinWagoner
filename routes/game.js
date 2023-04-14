@@ -20,6 +20,22 @@ module.exports = {
 			});
 		});
 	},
+	getDelete: (req, res) => {
+		let id = req.params.id;
+
+		// db.query to get game by id
+		let query = `SELECT game_name,game_id FROM Games WHERE game_id = ${id}`;
+		db.query(query, (err, result) => {
+			if (err) {
+				throw err;
+			}
+
+			res.render('delete-game.ejs', {
+				title: 'Board Games | Edit game',
+				game: result[0]
+			});
+		});
+	},
 	postAdd: (req, res) => {
 		// db.query to insert game
 		let { name } = req.body;
@@ -39,7 +55,6 @@ module.exports = {
 		let id = req.params.id;
 
 		// db.query to update game
-
 		let { name } = req.body;
 		let query = `UPDATE Games SET game_name = '${name}' WHERE game_id = ${id}`;
 		db.query(query, (err, result) => {
@@ -47,6 +62,19 @@ module.exports = {
 				throw err;
 			}
 			console.log(`Game ${id} updated to ${name}`);
+			res.redirect('/');
+		});
+	},
+	postDelete: (req, res) => {
+		let id = req.params.id;
+
+		// db.query to delete game
+		let query = `DELETE FROM Games WHERE game_id = ${id}`;
+		db.query(query, (err, result) => {
+			if (err) {
+				throw err;
+			}
+			console.log(`Game ${id} deleted`);
 			res.redirect('/');
 		});
 	}
