@@ -13,8 +13,10 @@ module.exports = {
 			SELECT 
 				game_name,
 				game_id 
-			FROM Games 
-			WHERE game_id = ${id}`;
+			FROM 
+				Games 
+			WHERE 
+				game_id = ${id}`;
 		db.query(query, (err, result) => {
 			if (err) {
 				throw err;
@@ -34,8 +36,10 @@ module.exports = {
 			SELECT 
 				game_name,
 				game_id 
-			FROM Games 
-			WHERE game_id = ${id}`;
+			FROM 
+				Games 
+			WHERE 
+				game_id = ${id}`;
 		db.query(query, (err, result) => {
 			if (err) {
 				throw err;
@@ -51,8 +55,10 @@ module.exports = {
 		// db.query to insert game
 		let { name, image_url } = req.body;
 		let query = `
-			INSERT INTO Games (game_name, game_image) 
-			VALUES ('${name}','${image_url}')`;
+			INSERT INTO 
+				Games (game_name, game_image) 
+			VALUES 
+				('${name}','${image_url}')`;
 		db.query(query, (err, result) => {
 			if (err) {
 				throw err;
@@ -68,9 +74,12 @@ module.exports = {
 		// db.query to update game
 		let { name } = req.body;
 		let query = `
-			UPDATE Games 
-			SET game_name = '${name}' 
-			WHERE game_id = ${id}`;
+			UPDATE 
+				Games 
+			SET 
+				game_name = '${name}' 
+			WHERE 
+				game_id = ${id}`;
 		db.query(query, (err, result) => {
 			if (err) {
 				throw err;
@@ -85,8 +94,10 @@ module.exports = {
 		// db.query to delete game if Yes is clicked
 		if(req.body.delete === 'Yes'){
 			let query = `
-				DELETE FROM Games 
-				WHERE game_id = ${id}`;
+				DELETE FROM 
+					Games 
+				WHERE 
+					game_id = ${id}`;
 			db.query(query, (err, result) => {
 				if (err) {
 					throw err;

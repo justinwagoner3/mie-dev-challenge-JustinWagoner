@@ -1,9 +1,12 @@
 module.exports = {
 	getAdd: (req, res) => {
 		let query = `
-			SELECT * 
-			FROM Games 
-			ORDER BY game_name ASC`;
+			SELECT 
+				* 
+			FROM 
+				Games 
+			ORDER BY 
+				game_name ASC`;
 
 		db.query(query, (err, results) => {
 			if (err) {
@@ -26,9 +29,12 @@ module.exports = {
 				GameSessions.game_id, 
 				GameSessions.game_session_start_date, 
 				Games.game_name 
-			FROM GameSessions 
-			JOIN Games ON GameSessions.game_id = Games.game_id
-			WHERE game_session_id = ${id}`;
+			FROM 
+				GameSessions 
+			JOIN 
+				Games ON GameSessions.game_id = Games.game_id
+			WHERE 
+				game_session_id = ${id}`;
 
 		db.query(query, (err, result) => {
 			if (err) {
@@ -51,9 +57,12 @@ module.exports = {
 				Games.game_name,
 				GameSessions.game_session_id,
 				GameSessions.game_session_start_date
-			FROM GameSessions 
-			JOIN Games ON GameSessions.game_id = Games.game_id
-			WHERE game_session_id = ${id}`;
+			FROM 
+				GameSessions 
+			JOIN 
+				Games ON GameSessions.game_id = Games.game_id
+			WHERE 
+				game_session_id = ${id}`;
 		db.query(query, (err, result) => {
 			if (err) {
 				throw err;
@@ -69,8 +78,10 @@ module.exports = {
 	postAdd: (req, res) => {
 		let { game_id, startDate } = req.body;
 		let query = `
-			INSERT INTO GameSessions (game_id, game_session_start_date) 
-			VALUES ('${game_id}', '${startDate}')`;
+			INSERT INTO 
+				GameSessions (game_id, game_session_start_date) 
+			VALUES 
+				('${game_id}', '${startDate}')`;
 
 		db.query(query, (err, result) => {
 			if (err) {
@@ -86,9 +97,12 @@ module.exports = {
 		// db.query to update game
 		let { startDate } = req.body;
 		let query = `
-			UPDATE GameSessions 
-			SET game_session_start_date = '${startDate}' 
-			WHERE game_session_id = ${id}`;
+			UPDATE 
+				GameSessions 
+			SET 
+				game_session_start_date = '${startDate}' 
+			WHERE 
+				game_session_id = ${id}`;
 		db.query(query, (err, result) => {
 			if (err) {
 				throw err;
@@ -103,8 +117,10 @@ module.exports = {
 		// db.query to delete game if Yes is pressed
 		if(req.body.delete === 'Yes'){
 			let query = `
-				DELETE FROM GameSessions 
-				WHERE game_session_id = ${id}`;
+				DELETE FROM 
+					GameSessions 
+				WHERE 
+					game_session_id = ${id}`;
 			db.query(query, (err, result) => {
 				if (err) {
 					throw err;
