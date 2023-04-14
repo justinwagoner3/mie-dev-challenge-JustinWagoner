@@ -68,14 +68,19 @@ module.exports = {
 	postDelete: (req, res) => {
 		let id = req.params.id;
 
-		// db.query to delete game
-		let query = `DELETE FROM Games WHERE game_id = ${id}`;
-		db.query(query, (err, result) => {
-			if (err) {
-				throw err;
-			}
-			console.log(`Game ${id} deleted`);
+		// db.query to delete game if Yes is clicked
+		if(req.body.delete === 'Yes'){
+			let query = `DELETE FROM Games WHERE game_id = ${id}`;
+			db.query(query, (err, result) => {
+				if (err) {
+					throw err;
+				}
+				console.log(`Game ${id} deleted`);
+				res.redirect('/');
+			});
+		}
+		else{
 			res.redirect('/');
-		});
+		}	
 	}
 };
