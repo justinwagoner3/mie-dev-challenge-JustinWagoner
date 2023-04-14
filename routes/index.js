@@ -1,16 +1,27 @@
 module.exports = {
 	getHomePage: (req, res) => {
 		// TODO: Make query for games list
-		let query = "SELECT * FROM Games";
+		let gamesQuery = "SELECT * FROM Games";
 
-		db.query(query, (err, result) => {
+		db.query(gamesQuery, (err, gamesResult) => {
 			if (err) {
 				console.log(err);
 				res.redirect('/');
 			}
-			res.render('index.ejs', {
-				title: 'Board Games | View Games',
-				games: result
+
+			let gameSessionsQuery = "SELECT * FROM GameSessions";
+
+			db.query(gameSessionsQuery, (err, gameSessionsResult) => {
+				if (err) {
+					console.log(err);
+					res.redirect('/');
+				}
+
+				res.render('index.ejs', {
+					title: 'Board Games | View Games',
+					games: gamesResult,
+					gameSessions: gameSessionsResult
+				});
 			});
 		});
 	}
