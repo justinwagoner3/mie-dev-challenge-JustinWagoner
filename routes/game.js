@@ -5,12 +5,23 @@ module.exports = {
 		});
 	},
 	getEdit: (req, res) => {
-		res.render('edit-game.ejs', {
-			title: 'Board Games | Edit game'
+		let id = req.params.id;
+
+		// db.query to get game by id
+		let query = `SELECT game_name,game_id FROM Games WHERE game_id = ${id}`;
+		db.query(query, (err, result) => {
+			if (err) {
+				throw err;
+			}
+
+			res.render('edit-game.ejs', {
+				title: 'Board Games | Edit game',
+				game: result[0]
+			});
 		});
 	},
 	postAdd: (req, res) => {
-		// TODO db.query to insert game
+		// db.query to insert game
 		let { name } = req.body;
 		let query = `INSERT INTO Games (game_name) VALUES ('${name}')`;
 		db.query(query, (err, result) => {
@@ -27,8 +38,16 @@ module.exports = {
 	postEdit: (req, res) => {
 		let id = req.params.id;
 
-		// TODO db.query to update game
+		// db.query to update game
 
-		res.redirect('/');
+		let { name } = req.body;
+		let query = `UPDATE Games SET game_name = '${name}' WHERE game_id = ${id}`;
+		db.query(query, (err, result) => {
+			if (err) {
+				throw err;
+			}
+			console.log(`Game ${id} updated to ${name}`);
+			res.redirect('/');
+		});
 	}
 };

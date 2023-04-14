@@ -1,5 +1,10 @@
 <%- include ('partials/header.ejs') %>
 
-TODO: Make a form for editing a game
+<h1>You are about to change <%= game.game_name %></h1>
+	<form method="post" action="/edit-game/<%= game.game_id %>">
+		<label for="name">New Name:</label>
+		<input type="text" name="name" id="name">
+		<button type="submit">Edit Game</button>
+	</form>
 
 <%- include ('partials/footer.ejs') %>
