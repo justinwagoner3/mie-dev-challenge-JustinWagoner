@@ -25,9 +25,36 @@ db.connect((err) => {
 		throw err;
 	}
 	console.log('Connected to database');
+
 });
 
 global.db = db;
+
+// Verify that the DB tables necessary exist
+db.query('SHOW TABLES LIKE "Games";', function (error, results, fields) {
+    if (error){
+    	throw error;
+    } 
+    if (results.length == 0) {
+        console.log('Database does not contain the table "Games" or there are no entries in it');
+    } 
+    else {
+        console.log('Database contains the table "Games" with data');
+    }
+});
+
+db.query('SHOW TABLES LIKE "GameSessions";', function (error, results, fields) {
+    if (error){
+    	throw error;
+    } 
+    if (results.length == 0) {
+        console.log('Database does not contain the table "GameSessions" or there are no entries in it');
+    } 
+    else {
+        console.log('Database contains the table "GameSessions" with data');
+    }
+});
+
 
 app.set('port', process.env.port || port);
 app.set('views', __dirname + '/views');
