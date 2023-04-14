@@ -1,10 +1,15 @@
 <%- include('partials/header.ejs') %>
 
-<div>
-	TODO: Display list of board games
-</div>
-
 <a href="/add-game">Add Game</a>
 <a href="/add-game-session">Add Game Session</a>
+
+<div>
+	<ul>
+		<% for (var i = 0; i < games.length; i++) { %>
+			<li><%= games[i].game_name %></li>
+		<% } %>
+	</ul>
+</div>
+
 
 <%- include ('partials/footer.ejs') %>
