@@ -5,13 +5,15 @@ module.exports = {
 				Games.game_id, 
 				Games.game_name, 
 				Games.game_image,
-				MAX(GameSessions.game_session_start_date) AS last_played 
+				MAX(GameSessions.game_session_start_date) AS last_played, 
+				COUNT(GameSessions.game_session_id) AS times_played
 			FROM Games 
 			LEFT JOIN 
 				GameSessions ON Games.game_id = GameSessions.game_id 
 			GROUP BY 
 				Games.game_id
 			ORDER BY
+				times_played DESC,
 				Games.game_name ASC`;
 
 		db.query(gamesQuery, (err, gamesResult) => {

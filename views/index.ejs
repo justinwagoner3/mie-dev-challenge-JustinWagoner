@@ -34,6 +34,7 @@ td {
 	            <tr>
 	            	<th>Image</th>
 	                <th>Name</th>
+	                <th>Play Count</th>
 	                <th>Last Played</th>
 	                <th>Edit</th>
 	                <th>Delete</th>
@@ -44,6 +45,7 @@ td {
 	                <tr>
 						<td><img src="<%= games[i].game_image %>" style="max-height: 100px; max-width: 100px;"></td>
 	                    <td><%= games[i].game_name %></td>
+	                    <td><%= games[i].times_played %></td>
 	                    <td><%= games[i].last_played ? games[i].last_played.toLocaleString('en-US', { timeZone: 'UTC', hourCycle: 'h12', hour12: true }) : '' %></td>
 	                	<td><button onclick="location.href='/edit-game/<%= games[i].game_id %>'">Edit</button></td>
 	                	<td><button onclick="location.href='/delete-game/<%= games[i].game_id %>'">Delete</button></td>
