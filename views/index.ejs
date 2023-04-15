@@ -46,7 +46,7 @@ td {
 						<td><img src="<%= games[i].game_image %>" style="max-height: 100px; max-width: 100px;"></td>
 	                    <td><%= games[i].game_name %></td>
 	                    <td><%= games[i].times_played %></td>
-	                    <td><%= games[i].last_played ? games[i].last_played.toLocaleString('en-US', { timeZone: 'UTC', hourCycle: 'h12', hour12: true }) : '' %></td>
+	                    <td><%= games[i].last_played ? games[i].last_played.toLocaleString('en-US', { hourCycle: 'h12', hour12: true }) : '' %></td>
 	                	<td><button onclick="location.href='/edit-game/<%= games[i].game_id %>'">Edit</button></td>
 	                	<td><button onclick="location.href='/delete-game/<%= games[i].game_id %>'">Delete</button></td>
 	                </tr>
@@ -70,7 +70,7 @@ td {
 	            <% for (var i = 0; i < gameSessions.length; i++) { %>
 	                <tr>
 						<td><%= gameSessions[i].game_name %></td>
-						<td><%= gameSessions[i].game_session_start_date.toLocaleString('en-US', { timeZone: 'UTC', hourCycle: 'h12', hour12: true }) %></td>
+						<td><%= gameSessions[i].game_session_start_date.toLocaleString('en-US', { hourCycle: 'h12', hour12: true }) %></td>
 	                	<td><button onclick="location.href='/edit-game-session/<%= gameSessions[i].game_session_id %>'">Edit</button></td>
 	                	<td><button onclick="location.href='/delete-game-session/<%= gameSessions[i].game_session_id %>'">Delete</button></td>
 	                </tr>
