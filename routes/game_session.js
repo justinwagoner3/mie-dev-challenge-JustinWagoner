@@ -14,22 +14,32 @@ module.exports = {
 		});
 	},
 	getEdit: (req, res) => {
-		let id = req.params.id;
+	    let id = req.params.id;
 
-		// db.query to get game_session by id
-		let query = 'SELECT GameSessions.game_session_id, GameSessions.game_id, GameSessions.game_session_start_date, Games.game_name FROM GameSessions JOIN Games ON GameSessions.game_id = Games.game_id WHERE game_session_id = ?';
+	    // db.query to get game_session by id
+	    let query = 'SELECT GameSessions.game_session_id, GameSessions.game_id, GameSessions.game_session_start_date, Games.game_name FROM GameSessions JOIN Games ON GameSessions.game_id = Games.game_id WHERE game_session_id = ?';
 
-		db.query(query, [id], (err, result) => {
-			if (err) {
-				throw err;
-			}
+	    db.query(query, [id], (err, result) => {
+	        if (err) {
+	            throw err;
+	        }
 
-			console.log(`Attempting to edit game session ${id}`);
-			res.render('edit-game-session.ejs', {
-				title: 'Board Games | Edit game session',
-				gameSession: result[0]
-			});
-		});
+	        console.log(`Attempting to edit game session ${id}`);
+
+	        // necessary to do another query so dropdown box will have available games
+	        db.query('SELECT * FROM Games', (err, games) => {
+	            if (err) {
+	                throw err;
+	            }
+
+	            // Pass both the game session and games to the view
+	            res.render('edit-game-session.ejs', {
+	                title: 'Board Games | Edit game session',
+	                gameSession: result[0],
+	                games: games
+	            });
+	        });
+	    });
 	},
 	getDelete: (req, res) => {
 		let id = req.params.id;
@@ -61,18 +71,18 @@ module.exports = {
 		});
 	},
 	postEdit: (req, res) => {
-		let id = req.params.id;
+	    let id = req.params.id;
 
-		// db.query to update game
-		let { startDate } = req.body;
-		let query = 'UPDATE GameSessions SET game_session_start_date = ? WHERE game_session_id = ?';
-		db.query(query, [startDate, id], (err, result) => {
-			if (err) {
-				throw err;
-			}
-			console.log(`Game Session ${id} updated to time ${startDate}`);
-			res.redirect('/');
-		});
+	    // db.query to update game session with new game id and start date
+	    let { startDate, gameSelect } = req.body;
+	    let query = 'UPDATE GameSessions SET game_session_start_date = ?, game_id = ? WHERE game_session_id = ?';
+	    db.query(query, [startDate, gameSelect, id], (err, result) => {
+	        if (err) {
+	            throw err;
+	        }
+	        console.log(`Game Session ${id} updated to time ${startDate} and game id ${gameSelect}`);
+	        res.redirect('/');
+	    });
 	},
 	postDelete: (req, res) => {
 		let id = req.params.id;
