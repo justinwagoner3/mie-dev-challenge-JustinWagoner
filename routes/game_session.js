@@ -1,18 +1,12 @@
 module.exports = {
 	getAdd: (req, res) => {
-		let query = `
-			SELECT 
-				* 
-			FROM 
-				Games 
-			ORDER BY 
-				game_name ASC`;
+		let query = 'SELECT * FROM Games ORDER BY game_name ASC';
 
 		db.query(query, (err, results) => {
 			if (err) {
 				throw err;
 			}
-			console.log(`Attemping to add a game session`);
+			console.log(`Attempting to add a game session`);
 			res.render('add-game-session.ejs', {
 				title: 'Board Games | Add game session',
 				games: results
@@ -23,25 +17,14 @@ module.exports = {
 		let id = req.params.id;
 
 		// db.query to get game_session by id
-		let query = `
-			SELECT 
-				GameSessions.game_session_id, 
-				GameSessions.game_id, 
-				GameSessions.game_session_start_date, 
-				Games.game_name 
-			FROM 
-				GameSessions 
-			JOIN 
-				Games ON GameSessions.game_id = Games.game_id
-			WHERE 
-				game_session_id = ${id}`;
+		let query = 'SELECT GameSessions.game_session_id, GameSessions.game_id, GameSessions.game_session_start_date, Games.game_name FROM GameSessions JOIN Games ON GameSessions.game_id = Games.game_id WHERE game_session_id = ?';
 
-		db.query(query, (err, result) => {
+		db.query(query, [id], (err, result) => {
 			if (err) {
 				throw err;
 			}
 
-			console.log(`Attemping to edit game session ${id}`)
+			console.log(`Attempting to edit game session ${id}`);
 			res.render('edit-game-session.ejs', {
 				title: 'Board Games | Edit game session',
 				gameSession: result[0]
@@ -52,23 +35,13 @@ module.exports = {
 		let id = req.params.id;
 
 		// db.query to get game_session by id
-		let query = `
-			SELECT 
-				Games.game_name,
-				GameSessions.game_session_id,
-				GameSessions.game_session_start_date
-			FROM 
-				GameSessions 
-			JOIN 
-				Games ON GameSessions.game_id = Games.game_id
-			WHERE 
-				game_session_id = ${id}`;
-		db.query(query, (err, result) => {
+		let query = 'SELECT Games.game_name,GameSessions.game_session_id,GameSessions.game_session_start_date FROM GameSessions JOIN Games ON GameSessions.game_id = Games.game_id WHERE game_session_id = ?';
+		db.query(query, [id], (err, result) => {
 			if (err) {
 				throw err;
 			}
 
-			console.log(`Attempting to delete game session ${id}`)
+			console.log(`Attempting to delete game session ${id}`);
 			res.render('delete-game-session.ejs', {
 				title: 'Board Games | Delete game session',
 				gameSession: result[0]
@@ -77,13 +50,9 @@ module.exports = {
 	},
 	postAdd: (req, res) => {
 		let { game_id, startDate } = req.body;
-		let query = `
-			INSERT INTO 
-				GameSessions (game_id, game_session_start_date) 
-			VALUES 
-				('${game_id}', '${startDate}')`;
+		let query = 'INSERT INTO GameSessions (game_id, game_session_start_date) VALUES (?, ?)';
 
-		db.query(query, (err, result) => {
+		db.query(query, [game_id, startDate], (err, result) => {
 			if (err) {
 				throw err;
 			}
@@ -96,14 +65,8 @@ module.exports = {
 
 		// db.query to update game
 		let { startDate } = req.body;
-		let query = `
-			UPDATE 
-				GameSessions 
-			SET 
-				game_session_start_date = '${startDate}' 
-			WHERE 
-				game_session_id = ${id}`;
-		db.query(query, (err, result) => {
+		let query = 'UPDATE GameSessions SET game_session_start_date = ? WHERE game_session_id = ?';
+		db.query(query, [startDate, id], (err, result) => {
 			if (err) {
 				throw err;
 			}
@@ -116,12 +79,8 @@ module.exports = {
 
 		// db.query to delete game if Yes is pressed
 		if(req.body.delete === 'Yes'){
-			let query = `
-				DELETE FROM 
-					GameSessions 
-				WHERE 
-					game_session_id = ${id}`;
-			db.query(query, (err, result) => {
+			let query = 'DELETE FROM GameSessions WHERE game_session_id = ?';
+			db.query(query, [id], (err, result) => {
 				if (err) {
 					throw err;
 				}
