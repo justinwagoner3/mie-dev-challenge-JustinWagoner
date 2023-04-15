@@ -9,7 +9,7 @@ module.exports = {
 		let id = req.params.id;
 
 		// db.query to get game by id
-		let query = 'SELECT game_name,game_id FROM Games WHERE game_id = ?';
+		let query = 'SELECT game_name,game_id,game_image FROM Games WHERE game_id = ?';
 		db.query(query, [id], (err, result) => {
 			if (err) {
 				throw err;
@@ -54,13 +54,13 @@ module.exports = {
 		let id = req.params.id;
 
 		// db.query to update game
-		let { name } = req.body;
-		let query = 'UPDATE Games SET game_name = ? WHERE game_id = ?';
-		db.query(query, [name, id], (err, result) => {
+		let { name, image_url } = req.body;
+		let query = 'UPDATE Games SET game_name = ?, game_image = ? WHERE game_id = ?';
+		db.query(query, [name, image_url, id], (err, result) => {
 			if (err) {
 				throw err;
 			}
-			console.log(`Game ${id} updated to "${name}"`);
+			console.log(`Game ${id} updated to "${name}" with image URL "${image_url}"`);
 			res.redirect('/');
 		});
 	},
