@@ -1,6 +1,6 @@
 module.exports = {
 	getAdd: (req, res) => {
-		let query = 'SELECT * FROM Games ORDER BY game_name ASC';
+		let query = 'SELECT game_id,game_name FROM Games ORDER BY game_name ASC';
 
 		db.query(query, (err, results) => {
 			if (err) {
@@ -53,7 +53,7 @@ module.exports = {
 
 			console.log(`Attempting to delete game session ${id}`);
 			res.render('delete-game-session.ejs', {
-				title: 'Board Games | Delete game session',
+				title: 'Board Games | Delete Game Session',
 				gameSession: result[0]
 			});
 		});
