@@ -27,7 +27,7 @@ module.exports = {
 	        console.log(`Attempting to edit game session ${id}`);
 
 	        // necessary to do another query so dropdown box will have available games
-	        db.query('SELECT * FROM Games', (err, games) => {
+	        db.query('SELECT game_id,game_name FROM Games ORDER BY game_name ASC', (err, games) => {
 	            if (err) {
 	                throw err;
 	            }
