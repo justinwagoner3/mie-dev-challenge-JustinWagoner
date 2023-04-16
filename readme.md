@@ -57,11 +57,12 @@ docker exec -it miedb mysql --user=app --password=wonderful miechallenge -e "INS
 docker exec -it miedb mysql --user=app --password=wonderful miechallenge -e "INSERT INTO GameSessions (game_id, game_session_start_date) VALUES (5, '2023-04-08 12:00:00');"
 
 ```
- 4. Build the app
+ 4. Change Directory into root dir of project
+ 5. Build the app
   * `docker build -t board-game-directory .`
- 5. Run the app
+ 6. Run the app
   * `docker run -d -p 3000:3000 --name board-game-directory --link miedb:mysql board-game-directory`
- 6. Go to `http://localhost:3000/`
+ 7. Go to `http://localhost:3000/`
 
 
 Story: Board Game Directory
