@@ -30,7 +30,7 @@ INSERT INTO Games (game_name, game_image) VALUES ('Sorry', 'https://cdn0.iconfin
 # Insert same game sessions
 INSERT INTO GameSessions (game_id, game_session_start_date) VALUES (1, '2023-04-01 08:00:00');
 INSERT INTO GameSessions (game_id, game_session_start_date) VALUES (2, '2023-04-01 09:00:00');
-INSERT INTO GameSessions (game_id, game_session_start_date) VALUES (3, '2023-04-01 10:00:00');
+INSERT INTO GameSessions (game_id, game_session_start_date) VALUES (2, '2023-04-01 10:00:00');
 INSERT INTO GameSessions (game_id, game_session_start_date) VALUES (4, '2023-04-01 11:00:00');
 INSERT INTO GameSessions (game_id, game_session_start_date) VALUES (5, '2023-04-01 12:00:00');
 INSERT INTO GameSessions (game_id, game_session_start_date) VALUES (6, '2023-04-01 13:00:00');

@@ -49,7 +49,7 @@ docker exec -it miedb mysql --user=app --password=wonderful miechallenge -e "INS
 
 docker exec -it miedb mysql --user=app --password=wonderful miechallenge -e "INSERT INTO GameSessions (game_id, game_session_start_date) VALUES (2, '2023-04-01 09:00:00');"
 
-docker exec -it miedb mysql --user=app --password=wonderful miechallenge -e "INSERT INTO GameSessions (game_id, game_session_start_date) VALUES (3, '2023-04-01 10:00:00');"
+docker exec -it miedb mysql --user=app --password=wonderful miechallenge -e "INSERT INTO GameSessions (game_id, game_session_start_date) VALUES (2, '2023-04-01 10:00:00');"
 
 docker exec -it miedb mysql --user=app --password=wonderful miechallenge -e "INSERT INTO GameSessions (game_id, game_session_start_date) VALUES (4, '2023-04-01 11:00:00');"
 
