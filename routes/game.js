@@ -2,7 +2,7 @@ module.exports = {
 	getAdd: (req, res) => {
 		console.log(`Attempting to add a game`);
 		res.render('add-game.ejs', {
-			title: 'Board Games | Add game'
+			title: 'Board Games | Add Game'
 		});
 	},
 	getEdit: (req, res) => {
@@ -16,7 +16,7 @@ module.exports = {
 			}
 			console.log(`Attemping to edit game "${result[0].game_name}" with id ${id}`)
 			res.render('edit-game.ejs', {
-				title: 'Board Games | Edit game',
+				title: 'Board Games | Edit Game',
 				game: result[0]
 			});
 		});
@@ -32,7 +32,7 @@ module.exports = {
 			}
 			console.log(`Attemping to delete game "${result[0].game_name}" with id ${id}`)
 			res.render('delete-game.ejs', {
-				title: 'Board Games | Edit game',
+				title: 'Board Games | Delete Game',
 				game: result[0]
 			});
 		});

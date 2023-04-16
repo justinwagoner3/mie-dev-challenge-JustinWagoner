@@ -1,7 +1,7 @@
 <%- include ('partials/header.ejs') %>
 
 
-<h1>Delete Game Session</h1>
+<h1><%= title %></h1>
 
 	<p>Are you sure you want to delete game session id: <%= gameSession.game_session_id %>, name: <%= gameSession.game_name %>, start time: <%= gameSession.game_session_start_date %> ?</p>
 	<form method="POST" action="/delete-game-session/<%= gameSession.game_session_id %>">

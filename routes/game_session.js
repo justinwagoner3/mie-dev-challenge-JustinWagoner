@@ -8,7 +8,7 @@ module.exports = {
 			}
 			console.log(`Attempting to add a game session`);
 			res.render('add-game-session.ejs', {
-				title: 'Board Games | Add game session',
+				title: 'Board Games | Add Game Session',
 				games: results
 			});
 		});
@@ -34,7 +34,7 @@ module.exports = {
 
 	            // Pass both the game session and games to the view
 	            res.render('edit-game-session.ejs', {
-	                title: 'Board Games | Edit game session',
+	                title: 'Board Games | Edit Game Session',
 	                gameSession: result[0],
 	                games: games
 	            });
