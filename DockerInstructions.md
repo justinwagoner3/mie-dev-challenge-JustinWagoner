@@ -9,7 +9,7 @@ DockerInstructions.txt
   * `docker run --name=miedb -d -p 3307:3306 -e MARIADB_USER=app -e MARIADB_PASSWORD=wonderful -e MARIADB_DATABASE=miechallenge -e MARIADB_ROOT_PASSWORD=wonderful mariadb:latest`
  3. Create tables and insert data into the tables:
   *
-{{{
+```
 docker exec -it miedb mysql --user=app --password=wonderful miechallenge -e "CREATE TABLE Games (
     game_id INT NOT NULL AUTO_INCREMENT,
     game_name VARCHAR(255) NOT NULL,
@@ -85,7 +85,7 @@ docker exec -it miedb mysql --user=app --password=wonderful miechallenge -e "INS
 
 docker exec -it miedb mysql --user=app --password=wonderful miechallenge -e "INSERT INTO GameSessions (game_id, game_session_start_date) VALUES (10, '2023-04-08 17:00:00');"
 
-}}}
+```
  4. Build the app
   * `docker build -t board-game-directory .`
  5. Run the app
