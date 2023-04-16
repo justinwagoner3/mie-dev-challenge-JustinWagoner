@@ -1,6 +1,10 @@
 DockerInstructions.txt
 
  1. Delete/remove any currently running Docker processes
+  * `docker kill miedb`
+  * `docker rm miedb`
+  * `docker kill board-game-directory`
+  * `docker rm board-game-directory`
  2. Start the database as a Docker container
   * `docker run --name=miedb -d -p 3307:3306 -e MARIADB_USER=app -e MARIADB_PASSWORD=wonderful -e MARIADB_DATABASE=miechallenge -e MARIADB_ROOT_PASSWORD=wonderful mariadb:latest`
  3. Create tables and insert data into the tables:
