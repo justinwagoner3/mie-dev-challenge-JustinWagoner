@@ -1,3 +1,10 @@
+How To Run
+=====
+
+ * You can run using Docker by following the instructions root dir named `DockerInstructions.txt`
+ * You can follow instructions at the bottom of this page, but will need to update config.js to have `host: 'localhost',` instead of `host: 'miedb',` 
+
+
 Story: Board Game Directory
 =====
 
