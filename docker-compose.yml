@@ -1,0 +1,32 @@
+version: '3.8'
+
+networks:
+  my-network:
+    driver: bridge
+
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    networks:
+      - my-network
+  db:
+    image: mariadb
+    environment:
+      MARIADB_USER: app
+      MARIADB_PASSWORD: wonderful
+      MARIADB_DATABASE: miechallenge
+      MARIADB_ROOT_PASSWORD: Addie12baseball!
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    networks:
+      - my-network
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
