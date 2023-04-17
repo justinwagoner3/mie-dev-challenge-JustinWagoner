@@ -1,5 +1,6 @@
 module.exports = {
 	getHomePage: (req, res) => {
+		// query for displaying list of games available
 		let gamesQuery = `
 			SELECT 
 				Games.game_id, 
@@ -22,6 +23,7 @@ module.exports = {
 				res.redirect('/');
 			}
 
+		// query for displaying list of game sessions that have happened
 		let gameSessionsQuery = `
 			SELECT 
 				GameSessions.game_session_start_date,

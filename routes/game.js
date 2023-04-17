@@ -1,14 +1,16 @@
 module.exports = {
+	// renders when `Add Game` button is pushed on Game col of index.ejs
 	getAdd: (req, res) => {
 		console.log(`Attempting to add a game`);
 		res.render('add-game.ejs', {
 			title: 'Board Games | Add Game'
 		});
 	},
+	// renders when `Edit` button is pushed on Game col of index.ejs
 	getEdit: (req, res) => {
 		let id = req.params.id;
 
-		// db.query to get game by id
+		// query to display to the user what hame they are about to edit
 		let query = 'SELECT game_name,game_id,game_image FROM Games WHERE game_id = ?';
 		db.query(query, [id], (err, result) => {
 			if (err) {
@@ -21,10 +23,11 @@ module.exports = {
 			});
 		});
 	},
+	// renders when `Delete` button is pushed on Game col of index.ejs
 	getDelete: (req, res) => {
 		let id = req.params.id;
 
-		// db.query to get game by id
+		// query to display to user what game they are about to delete
 		let query = 'SELECT game_name,game_id FROM Games WHERE game_id = ?';
 		db.query(query, [id], (err, result) => {
 			if (err) {
@@ -37,8 +40,9 @@ module.exports = {
 			});
 		});
 	},
+	// runs when `Add Game` button is pushed on add-game.ejs
 	postAdd: (req, res) => {
-		// db.query to insert game
+		// query to insert game
 		let { name, image_url } = req.body;
 		let query = 'INSERT INTO Games (game_name, game_image) VALUES (?,?)';
 		db.query(query, [name, image_url], (err, result) => {
@@ -50,10 +54,11 @@ module.exports = {
 			res.redirect('/');
 		});
 	},
+	// runs when `Edit Game` button is pushed on edit-game.ejs
 	postEdit: (req, res) => {
 		let id = req.params.id;
 
-		// db.query to update game
+		// query to update game record selected name and image of whatever row they clicked Edit on
 		let { name, image_url } = req.body;
 		let query = 'UPDATE Games SET game_name = ?, game_image = ? WHERE game_id = ?';
 		db.query(query, [name, image_url, id], (err, result) => {
@@ -64,10 +69,11 @@ module.exports = {
 			res.redirect('/');
 		});
 	},
+	// runs when `Yes` button is pushed on delete-game.ejs
 	postDelete: (req, res) => {
 		let id = req.params.id;
 
-		// db.query to delete game if Yes is clicked
+		// query to delete game if Yes is clicked
 		if(req.body.delete === 'Yes'){
 			let query = 'DELETE FROM Games WHERE game_id = ?';
 			db.query(query, [id], (err, result) => {
