@@ -79,7 +79,7 @@ How To Use
 <img width="647" alt="image" src="https://user-images.githubusercontent.com/34258177/232504989-e7d5cf2a-80aa-40cd-91e0-43582cf46556.png">
  5. To Edit or Delete a game entry, you can click the `Edit` or `Delete` button on that game's row
  <img width="628" alt="image" src="https://user-images.githubusercontent.com/34258177/232505294-f77d8333-b950-4238-8d69-1a6969f44cd4.png">
- 6. Clicking on `Edit` will give you the change to update the game name and game image, and you can save changes by pressing `Edit Game`
+ 6. Clicking on `Edit` will give you the chance to update the game name and game image, and you can save changes by pressing `Edit Game`
  <img width="699" alt="image" src="https://user-images.githubusercontent.com/34258177/232505483-ef6a3313-967b-4bc2-9901-a38e5da5a630.png">
  7. Clicking on `Delete` will prompt the user with the game they want to delete, press `Yes` to delete or `No` to go back
  <img width="405" alt="image" src="https://user-images.githubusercontent.com/34258177/232505658-8bab50ce-192a-4240-ae2f-68217824c5cc.png">
