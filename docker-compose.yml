@@ -19,7 +19,7 @@ services:
       MARIADB_USER: app
       MARIADB_PASSWORD: wonderful
       MARIADB_DATABASE: miechallenge
-      MARIADB_ROOT_PASSWORD: Addie12baseball!
+      MARIADB_ROOT_PASSWORD: Pas$w0rD
     ports:
       - "3307:3306"
     volumes:
