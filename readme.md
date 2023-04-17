@@ -66,6 +66,36 @@ docker exec -it miedb mysql --user=app --password=wonderful miechallenge -e "CRE
   * `docker run -d -p 3000:3000 --name board-game-directory --link miedb:mysql board-game-directory`
  7. Go to `http://localhost:3000/`
 
+How To Use
+=====
+ 1. The home page will display both of your tables `Games` and `Game Sessions`:
+<img width="1388" alt="Screenshot 2023-04-17 at 9 46 19 AM" src="https://user-images.githubusercontent.com/34258177/232503340-3b18aaea-e43d-4670-a4a7-38c692ecef01.png">
+ 2. Inside of your `Games` table there is a button `Add Game` that you can press to load the screen to add a new game:
+<img width="651" alt="image" src="https://user-images.githubusercontent.com/34258177/232503756-e9e2aa54-b296-4127-9cf9-a196ff8ff30e.png">
+<img width="126" alt="image" src="https://user-images.githubusercontent.com/34258177/232503805-26e0db68-fea0-4c6a-aeff-6273bfd853c3.png">
+ 3. Now you can enter information for your game, then press `Add Game` to add the game to the library. NOTE the instructions on how to upload an image if you choose, though it can be left blank
+ <img width="643" alt="image" src="https://user-images.githubusercontent.com/34258177/232504396-020944eb-9c85-45d9-9fd9-1a335938505f.png">
+ 4. After adding your game you will see a new record appear at the bottom of your `Games` table:
+<img width="647" alt="image" src="https://user-images.githubusercontent.com/34258177/232504989-e7d5cf2a-80aa-40cd-91e0-43582cf46556.png">
+ 5. To Edit or Delete a game entry, you can click the `Edit` or `Delete` button on that game's row
+ <img width="628" alt="image" src="https://user-images.githubusercontent.com/34258177/232505294-f77d8333-b950-4238-8d69-1a6969f44cd4.png">
+ 6. Clicking on `Edit` will give you the change to update the game name and game image, and you can save changes by pressing `Edit Game`
+ <img width="699" alt="image" src="https://user-images.githubusercontent.com/34258177/232505483-ef6a3313-967b-4bc2-9901-a38e5da5a630.png">
+ 7. Clicking on `Delete` will prompt the user with the game they want to delete, press `Yes` to delete or `No` to go back
+ <img width="405" alt="image" src="https://user-images.githubusercontent.com/34258177/232505658-8bab50ce-192a-4240-ae2f-68217824c5cc.png">
+ 8. Inside of your `Game Sessions` table there is a button `Add Game Session` that you can press to load the screen to add a new game session:
+ <img width="645" alt="image" src="https://user-images.githubusercontent.com/34258177/232505870-8cbf2dd1-910e-4fd1-b1e8-c351d87b5568.png">
+ <img width="232" alt="image" src="https://user-images.githubusercontent.com/34258177/232506226-f63bbaf9-9fbf-423d-8049-62448f8ba988.png">
+ 9. Now you can enter the game and time played for your game session, then press `Add Game Session` to add the game session
+ <img width="489" alt="image" src="https://user-images.githubusercontent.com/34258177/232506160-034f382e-4ef2-4295-bf95-6a0a0f85394b.png">
+ 10. You'll see your new game session at the top of the table, as they are sorted by time started:
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/34258177/232507559-72e337fb-08a8-483e-982b-beb5abe879f7.png">
+ 11. To Edit or Delete a game session entry, you can click the `Edit` or `Delete` button on that game session's row
+<img width="617" alt="image" src="https://user-images.githubusercontent.com/34258177/232506430-0723cda0-2730-4eab-aab8-5fd981cc3678.png">
+ 12. Clicking on `Edit` will give you the change to update the game name and game start time, and you can save changes by pressing `Edit Game Session`
+ <img width="878" alt="image" src="https://user-images.githubusercontent.com/34258177/232506610-9eaa188f-dd95-46a0-896a-c2aee36177f9.png">
+ 13. Clicking on `Delete` will prompt the user with the game they want to delete, press `Yes` to delete or `No` to go back
+<img width="1032" alt="image" src="https://user-images.githubusercontent.com/34258177/232506768-0da88eb4-3137-40f7-8a5e-a3a895706c78.png">
 
 Story: Board Game Directory
 =====
