@@ -158,3 +158,4 @@ mysql devchallenge_$APPLICANT_USER < schema.sql
 npm install
 npm start
 ```
+
